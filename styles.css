@@ -48,11 +48,12 @@ a {
   align-items: center;
   gap: 26px;
   min-height: 78px;
-  padding: 8px clamp(18px, 4vw, 58px);
+  padding: 6px clamp(18px, 4vw, 58px);
   color: var(--ink);
-  background: rgba(255, 255, 255, 0.96);
+  background: var(--white);
   backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(22, 23, 24, 0.1);
+  border-top: 10px solid var(--coal);
+  border-bottom: 10px solid var(--coal);
 }
 
 .brand {
@@ -62,7 +63,7 @@ a {
 }
 
 .brand img {
-  width: clamp(138px, 14vw, 180px);
+  width: clamp(130px, 13vw, 168px);
   height: auto;
 }
 
@@ -614,7 +615,7 @@ textarea {
 @media (max-width: 640px) {
   .site-header {
     min-height: 68px;
-    padding: 12px 16px;
+    padding: 8px 16px;
   }
 
   .site-nav {
