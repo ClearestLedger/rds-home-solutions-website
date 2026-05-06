@@ -312,6 +312,31 @@ h3 {
   color: rgba(255, 255, 255, 0.76);
 }
 
+.financing {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(280px, 0.65fr);
+  gap: clamp(26px, 6vw, 86px);
+  align-items: center;
+  background: var(--white);
+}
+
+.financing-panel {
+  display: grid;
+  gap: 22px;
+  justify-items: start;
+  padding: clamp(22px, 4vw, 34px);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--orange);
+  border-radius: 6px;
+}
+
+.financing-panel p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+}
+
 .work {
   background: var(--white);
 }
@@ -588,6 +613,7 @@ textarea {
 
   .intro,
   .feature,
+  .financing,
   .about,
   .contact-panel {
     grid-template-columns: 1fr;
