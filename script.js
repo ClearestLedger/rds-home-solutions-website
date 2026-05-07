@@ -1,21 +1,7 @@
-const filters = document.querySelectorAll("[data-filter]");
-const cards = document.querySelectorAll("[data-category]");
 const header = document.querySelector("[data-header]");
 const navToggle = document.querySelector(".nav-toggle");
 const siteNavLinks = document.querySelectorAll("[data-nav] a");
-
-filters.forEach((button) => {
-  button.addEventListener("click", () => {
-    const filter = button.dataset.filter;
-    filters.forEach((item) => item.classList.toggle("active", item === button));
-
-    cards.forEach((card) => {
-      const categories = card.dataset.category.split(" ");
-      const visible = filter === "all" || categories.includes(filter);
-      card.hidden = !visible;
-    });
-  });
-});
+const serviceCards = document.querySelectorAll(".service-card");
 
 if (header && navToggle) {
   navToggle.addEventListener("click", () => {
@@ -31,3 +17,15 @@ if (header && navToggle) {
     });
   });
 }
+
+serviceCards.forEach((card) => {
+  card.addEventListener("toggle", () => {
+    if (!card.open) return;
+
+    serviceCards.forEach((otherCard) => {
+      if (otherCard !== card) {
+        otherCard.open = false;
+      }
+    });
+  });
+});
