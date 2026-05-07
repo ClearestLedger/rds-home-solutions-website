@@ -40,6 +40,26 @@ a {
   text-decoration: none;
 }
 
+.hero-shell {
+  position: relative;
+  color: var(--white);
+  background: var(--coal);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-shell::before {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  content: "";
+  background-image: url("assets/images/wood-stain-exterior.jpeg");
+  background-position: center top;
+  background-size: cover;
+  filter: saturate(0.92) brightness(1.04);
+  transform: scale(1.01);
+}
+
 .site-header {
   position: relative;
   z-index: 20;
@@ -50,7 +70,14 @@ a {
   min-height: clamp(118px, 14vw, 172px);
   padding: clamp(18px, 3vw, 34px) clamp(20px, 5vw, 70px);
   color: var(--ink);
-  background: #f2f4f2;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.54)),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.50) 50%, rgba(255, 255, 255, 0.28));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.5),
+    0 20px 54px rgba(22, 23, 24, 0.08);
+  backdrop-filter: blur(7px) saturate(1.12);
   overflow: hidden;
   isolation: isolate;
 }
@@ -58,32 +85,31 @@ a {
 .site-header::before {
   position: absolute;
   inset: 0;
-  z-index: -2;
+  z-index: 0;
   content: "";
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.48)),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.48) 48%, rgba(255, 255, 255, 0.22)),
-    url("assets/images/wood-stain-exterior.jpeg");
-  background-position: center 30%;
-  background-size: cover;
-  filter: saturate(0.86) brightness(1.08);
-  transform: scale(1.03);
+    linear-gradient(115deg, transparent 0 20%, rgba(255, 255, 255, 0.52) 34%, transparent 50%),
+    radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.62), transparent 24%),
+    radial-gradient(circle at 84% 12%, rgba(255, 255, 255, 0.36), transparent 30%);
+  opacity: 0.82;
+  mix-blend-mode: screen;
 }
 
 .site-header::after {
   position: absolute;
   left: -10vw;
   right: -10vw;
-  top: 48%;
+  bottom: 7px;
   z-index: 0;
-  height: clamp(44px, 7vw, 86px);
+  height: clamp(34px, 5.4vw, 64px);
   content: "";
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-80 82 C250 4 520 112 820 70 C1060 36 1240 84 1520 22' fill='none' stroke='%23d8672b' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 92' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-80 56 C230 -8 522 94 820 50 C1062 14 1260 66 1520 12' fill='none' stroke='%23d8672b' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
-  opacity: 0.9;
+  opacity: 0.86;
   filter: drop-shadow(0 8px 14px rgba(216, 103, 43, 0.18));
+  pointer-events: none;
 }
 
 .site-header > * {
@@ -160,20 +186,7 @@ a {
   display: grid;
   min-height: 86svh;
   color: var(--white);
-  background: var(--coal);
-  isolation: isolate;
-}
-
-.hero-media {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-}
-
-.hero-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  background: transparent;
 }
 
 .hero::after {
@@ -666,8 +679,9 @@ textarea {
   }
 
   .site-header::after {
-    top: 50%;
-    height: 54px;
+    top: auto;
+    bottom: 4px;
+    height: 38px;
     left: -24vw;
     right: -24vw;
   }
