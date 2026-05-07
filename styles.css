@@ -388,7 +388,7 @@ h3 {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 72px minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: clamp(16px, 3vw, 34px);
   align-items: center;
   min-height: 220px;
@@ -402,10 +402,7 @@ h3 {
 }
 
 .service-number {
-  align-self: start;
-  color: var(--orange);
-  font-size: 15px;
-  font-weight: 950;
+  display: none;
 }
 
 .service-summary {
@@ -875,7 +872,7 @@ textarea {
   }
 
   .service-number {
-    align-self: start;
+    display: none;
   }
 
   .service-title {
