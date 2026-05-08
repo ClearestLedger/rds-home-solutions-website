@@ -99,20 +99,8 @@ a {
 }
 
 .site-header::after {
-  position: absolute;
-  left: -10vw;
-  right: -10vw;
-  bottom: -14px;
-  z-index: 0;
-  height: clamp(28px, 4.6vw, 54px);
-  content: "";
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 92' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-80 56 C230 -8 522 94 820 50 C1062 14 1260 66 1520 12' fill='none' stroke='%23d8672b' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100% 100%;
-  opacity: 0.9;
-  filter: drop-shadow(0 8px 14px rgba(216, 103, 43, 0.24));
-  pointer-events: none;
+  display: none;
+  content: none;
 }
 
 .site-header > * {
@@ -389,10 +377,10 @@ h3 {
   z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: clamp(16px, 3vw, 34px);
+  gap: clamp(14px, 2.5vw, 28px);
   align-items: center;
-  min-height: 220px;
-  padding: clamp(24px, 4vw, 42px);
+  min-height: 172px;
+  padding: clamp(22px, 3vw, 32px);
   list-style: none;
   cursor: pointer;
 }
@@ -407,31 +395,31 @@ h3 {
 
 .service-summary {
   display: grid;
-  gap: 12px;
-  max-width: 780px;
+  gap: 9px;
+  max-width: 720px;
 }
 
 .service-title {
-  font-size: clamp(31px, 5vw, 58px);
+  font-size: clamp(27px, 3.9vw, 44px);
   font-weight: 900;
-  line-height: 0.98;
+  line-height: 1;
 }
 
 .service-description {
-  max-width: 660px;
+  max-width: 620px;
   color: rgba(255, 255, 255, 0.78);
-  font-size: clamp(16px, 1.8vw, 20px);
+  font-size: clamp(15px, 1.55vw, 18px);
 }
 
 .service-action {
   justify-self: end;
-  min-width: 180px;
-  padding: 12px 16px;
+  min-width: 158px;
+  padding: 10px 14px;
   color: var(--white);
   background: rgba(216, 103, 43, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 900;
   text-align: center;
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.20);
@@ -611,44 +599,42 @@ h3 {
   max-width: 860px;
 }
 
-.team-grid {
+.bio-grid {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 
-.team-member {
-  overflow: hidden;
-  background: var(--white);
+.bio-card {
+  min-height: 100%;
+  padding: clamp(22px, 3vw, 32px);
+  background:
+    linear-gradient(135deg, rgba(216, 103, 43, 0.08), transparent 42%),
+    var(--white);
   border: 1px solid var(--line);
   border-radius: 6px;
-  box-shadow: 0 18px 54px rgba(22, 23, 24, 0.12);
+  box-shadow: 0 18px 54px rgba(22, 23, 24, 0.10);
 }
 
-.team-member img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  object-position: center top;
-  background: var(--soft-coal);
+.bio-card h3 {
+  margin-bottom: 10px;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.08;
 }
 
-.team-member div {
-  padding: 18px;
-}
-
-.team-member h3 {
-  margin-bottom: 5px;
-  font-size: 19px;
-}
-
-.team-member p {
-  margin: 0;
+.bio-card .role {
+  margin-bottom: 8px;
   color: var(--orange-dark);
   font-size: 13px;
   font-weight: 900;
   text-transform: uppercase;
+}
+
+.bio-card p:not(.role) {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
 }
 
 .contact {
@@ -793,7 +779,7 @@ textarea {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .team-grid {
+  .bio-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -805,14 +791,6 @@ textarea {
     align-content: center;
     gap: 12px;
     padding: 16px 72px 16px 16px;
-  }
-
-  .site-header::after {
-    top: auto;
-    bottom: -10px;
-    height: 34px;
-    left: -24vw;
-    right: -24vw;
   }
 
   .header-brand img {
@@ -865,10 +843,10 @@ textarea {
 
   .service-card summary {
     grid-template-columns: 1fr;
-    min-height: 310px;
-    gap: 18px;
+    min-height: 238px;
+    gap: 15px;
     align-items: end;
-    padding: 24px;
+    padding: 22px;
   }
 
   .service-number {
@@ -876,7 +854,7 @@ textarea {
   }
 
   .service-title {
-    font-size: 34px;
+    font-size: 30px;
   }
 
   .service-action {
