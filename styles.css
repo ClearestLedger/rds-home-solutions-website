@@ -568,8 +568,7 @@ h3 {
 .flagship-grid,
 .secondary-grid,
 .process-grid,
-.project-showcase,
-.category-gallery {
+.project-showcase {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
@@ -710,13 +709,11 @@ h3 {
   font-size: 1.25rem;
 }
 
-.project-showcase,
-.category-gallery {
+.project-showcase {
   margin-top: 4.5rem;
 }
 
-.showcase-card,
-.category-tile {
+.showcase-card {
   display: grid;
   grid-template-rows: auto 1fr;
   overflow: hidden;
@@ -726,31 +723,14 @@ h3 {
   box-shadow: 0 18px 50px rgba(31, 43, 58, 0.09);
 }
 
-.category-tile-featured {
-  grid-column: span 2;
-  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.85fr);
-  grid-template-rows: 1fr;
-  background:
-    linear-gradient(135deg, rgba(217, 122, 43, 0.1), transparent 42%),
-    rgba(255, 255, 255, 0.92);
-  border-color: var(--line-strong);
-}
-
-.showcase-card img,
-.category-tile img {
+.showcase-card img {
   width: 100%;
   aspect-ratio: 16 / 11;
   object-fit: cover;
   background: var(--ivory);
 }
 
-.category-tile-featured img {
-  height: 100%;
-  aspect-ratio: auto;
-}
-
-.showcase-card div,
-.category-tile div {
+.showcase-card div {
   padding: 1.25rem;
 }
 
@@ -763,18 +743,12 @@ h3 {
   text-transform: uppercase;
 }
 
-.showcase-card h3,
-.category-tile h3 {
+.showcase-card h3 {
   margin-bottom: 0.55rem;
   font-size: 1.28rem;
 }
 
-.category-tile-featured h3 {
-  font-size: 1.65rem;
-}
-
-.showcase-card p:last-child,
-.category-tile p:last-of-type {
+.showcase-card p:last-child {
   margin: 0;
   color: var(--muted);
   font-size: 0.98rem;
@@ -809,6 +783,94 @@ h3 {
 
 .project-gallery-heading h2 {
   font-size: 2.55rem;
+}
+
+.category-layer {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.category-tabs {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.55rem;
+  overflow-x: visible;
+  padding: 0 0 0.4rem;
+  scrollbar-width: thin;
+}
+
+.category-tab {
+  min-height: 46px;
+  width: 100%;
+  padding: 0.78rem 0.95rem;
+  color: var(--navy);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(202, 191, 173, 0.72);
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(31, 43, 58, 0.05);
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 900;
+  line-height: 1.15;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.category-tab:hover,
+.category-tab:focus-visible {
+  border-color: var(--orange);
+  transform: translateY(-1px);
+}
+
+.category-tab.is-active {
+  color: var(--white);
+  background: var(--navy);
+  border-color: var(--navy);
+  box-shadow: 0 16px 38px rgba(31, 43, 58, 0.14);
+}
+
+.category-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.72fr);
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(217, 122, 43, 0.08), transparent 42%),
+    rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(202, 191, 173, 0.68);
+  border-radius: 10px;
+  box-shadow: 0 20px 54px rgba(31, 43, 58, 0.1);
+}
+
+.category-panel img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+  background: var(--ivory);
+}
+
+.category-panel-copy {
+  display: grid;
+  align-content: center;
+  min-height: 360px;
+  padding: 2rem;
+}
+
+.category-panel-copy h3 {
+  margin-bottom: 0.7rem;
+  font-size: 1.85rem;
+}
+
+.category-panel-copy p:last-of-type {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
 }
 
 .service-accordion {
@@ -1262,9 +1324,21 @@ form .button {
   .flagship-grid,
   .secondary-grid,
   .process-grid,
-  .project-showcase,
-  .category-gallery {
+  .project-showcase {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .category-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .category-tabs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .category-panel img,
+  .category-panel-copy {
+    min-height: auto;
   }
 
   .job-photos {
@@ -1389,7 +1463,7 @@ form .button {
   .financing-panel,
   .offer-panel,
   .process-grid,
-  .category-gallery,
+  .category-layer,
   .contact-panel {
     width: 100%;
     max-width: 100%;
@@ -1406,14 +1480,34 @@ form .button {
   .secondary-grid,
   .process-grid,
   .project-showcase,
-  .category-gallery,
   .job-photos {
     grid-template-columns: 1fr;
   }
 
-  .category-tile-featured {
-    grid-column: auto;
-    grid-template-columns: 1fr;
+  .category-tabs {
+    display: flex;
+    overflow-x: auto;
+    margin-right: -1rem;
+    padding-right: 1rem;
+  }
+
+  .category-tab {
+    flex: 0 0 min(245px, 78vw);
+    width: auto;
+    max-width: 245px;
+    white-space: normal;
+  }
+
+  .category-panel img {
+    aspect-ratio: 16 / 11;
+  }
+
+  .category-panel-copy {
+    padding: 1.25rem;
+  }
+
+  .category-panel-copy h3 {
+    font-size: 1.35rem;
   }
 
   .solution-card,

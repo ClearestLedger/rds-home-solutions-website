@@ -309,90 +309,131 @@
         </section>
 
         <div class="project-gallery-heading">
-          <p class="eyebrow">Project Categories</p>
-          <h2>Finished work, organized by service category.</h2>
+          <p class="eyebrow">Layered Gallery</p>
+          <h2>Project Categories</h2>
           <p class="section-intro">
-            Polished finished results only. Full project details can be discussed during your estimate.
+            Explore polished finished work by service category. More project details can be discussed during your estimate.
           </p>
         </div>
 
-        <div class="category-gallery" aria-label="RDS project categories">
-          <article class="category-tile category-tile-featured">
+        <div class="category-layer" aria-label="RDS project categories">
+          <div class="category-tabs" role="tablist" aria-label="Project category selector">
+            <button
+              class="category-tab is-active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="category-panel"
+              id="category-tab-exterior-coating"
+              data-category-tab
+              data-label="Flagship Category"
+              data-title="Premium Exterior Coating & Protection"
+              data-description="Premium exterior coating, stucco preparation, and weather-aware finish systems designed for Florida homes."
+              data-image="assets/images/service-galleries/01-exterior-painting/white-black-roof-exterior-after.webp"
+              data-alt="Finished Florida stucco home with white exterior coating and dark roof"
+              data-link-label="View Gallery"
+            >
+              Premium Exterior Coating & Protection
+            </button>
+            <button
+              class="category-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="category-panel"
+              id="category-tab-exterior-painting"
+              data-category-tab
+              data-label="Exterior"
+              data-title="Exterior Painting"
+              data-description="Clean exterior painting, trim detail, and curb appeal updates for Sarasota-area homes."
+              data-image="assets/images/service-galleries/01-exterior-painting/cream-exterior-front-after.webp"
+              data-alt="Finished Florida exterior painting project with clean stucco and entry details"
+              data-link-label="View Projects"
+            >
+              Exterior Painting
+            </button>
+            <button
+              class="category-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="category-panel"
+              id="category-tab-wood-stain"
+              data-category-tab
+              data-label="Exterior Finish"
+              data-title="Outdoor Wood Stain & Exterior Finishes"
+              data-description="Wood stain, exterior finish details, doors, panels, and outdoor living features finished with warmth and curb appeal."
+              data-image="assets/images/service-galleries/05-wood-stain/dark-exterior-wood-detail-after.webp"
+              data-alt="Finished exterior wood detail on a Florida home with palms and warm evening light"
+              data-link-label="View Gallery"
+            >
+              Outdoor Wood Stain & Exterior Finishes
+            </button>
+            <button
+              class="category-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="category-panel"
+              id="category-tab-interior"
+              data-category-tab
+              data-label="Interior"
+              data-title="Interior Painting"
+              data-description="Clean interior painting and finish work for living spaces, remodels, rentals, and home updates."
+              data-image="assets/images/kitchen/4.jpg"
+              data-alt="Finished bright interior with clean painted walls and polished finishes"
+              data-link-label="View Projects"
+            >
+              Interior Painting
+            </button>
+            <button
+              class="category-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="category-panel"
+              id="category-tab-remodeling"
+              data-category-tab
+              data-label="Home Improvement"
+              data-title="Remodeling & Home Improvement"
+              data-description="Kitchen, bathroom, flooring, drywall, and finish updates for larger home improvement projects."
+              data-image="assets/images/service-galleries/08-bathroom-remodeling/glass-shower-after.webp"
+              data-alt="Finished bathroom remodel with glass shower and modern vanity"
+              data-link-label="View Projects"
+            >
+              Remodeling & Home Improvement
+            </button>
+            <button
+              class="category-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="category-panel"
+              id="category-tab-commercial"
+              data-category-tab
+              data-label="Commercial"
+              data-title="Commercial Painting"
+              data-description="Professional painting and finish work for offices, retail spaces, rental properties, and business facilities."
+              data-image="assets/images/commercial-painting/commercial-stair-handrail.jpeg"
+              data-alt="Finished commercial stairwell with painted walls and handrail"
+              data-link-label="View Projects"
+            >
+              Commercial Painting
+            </button>
+          </div>
+
+          <article class="category-panel" id="category-panel" role="tabpanel" aria-labelledby="category-tab-exterior-coating">
             <img
+              data-category-image
               src="assets/images/service-galleries/01-exterior-painting/white-black-roof-exterior-after.webp"
               alt="Finished Florida stucco home with white exterior coating and dark roof"
               loading="lazy"
             />
-            <div>
-              <p class="showcase-label">Flagship Category</p>
-              <h3>Premium Exterior Coating & Protection</h3>
-              <p>Premium exterior coating, stucco preparation, and weather-aware finish systems designed for Florida homes.</p>
-              <a class="tile-link" href="#contact">View Gallery</a>
-            </div>
-          </article>
-          <article class="category-tile">
-            <img
-              src="assets/images/service-galleries/01-exterior-painting/cream-exterior-front-after.webp"
-              alt="Finished Florida exterior painting project with clean stucco and entry details"
-              loading="lazy"
-            />
-            <div>
-              <p class="showcase-label">Exterior</p>
-              <h3>Exterior Painting</h3>
-              <p>Clean exterior painting, trim detail, and curb appeal updates for Sarasota-area homes.</p>
-              <a class="tile-link" href="#contact">View Projects</a>
-            </div>
-          </article>
-          <article class="category-tile">
-            <img
-              src="assets/images/service-galleries/05-wood-stain/dark-exterior-wood-detail-after.webp"
-              alt="Finished exterior wood detail on a Florida home with palms and warm evening light"
-              loading="lazy"
-            />
-            <div>
-              <p class="showcase-label">Exterior Finish</p>
-              <h3>Outdoor Wood Stain & Exterior Finishes</h3>
-              <p>Wood stain, exterior finish details, doors, panels, and outdoor living features finished with warmth and curb appeal.</p>
-              <a class="tile-link" href="#contact">View Gallery</a>
-            </div>
-          </article>
-          <article class="category-tile">
-            <img
-              src="assets/images/kitchen/4.jpg"
-              alt="Finished bright interior with clean painted walls and polished finishes"
-              loading="lazy"
-            />
-            <div>
-              <p class="showcase-label">Interior</p>
-              <h3>Interior Painting</h3>
-              <p>Clean interior painting and finish work for living spaces, remodels, rentals, and home updates.</p>
-              <a class="tile-link" href="#contact">View Projects</a>
-            </div>
-          </article>
-          <article class="category-tile">
-            <img
-              src="assets/images/service-galleries/08-bathroom-remodeling/glass-shower-after.webp"
-              alt="Finished bathroom remodel with glass shower and modern vanity"
-              loading="lazy"
-            />
-            <div>
-              <p class="showcase-label">Home Improvement</p>
-              <h3>Remodeling & Home Improvement</h3>
-              <p>Kitchen, bathroom, flooring, drywall, and finish updates for larger home improvement projects.</p>
-              <a class="tile-link" href="#contact">View Projects</a>
-            </div>
-          </article>
-          <article class="category-tile">
-            <img
-              src="assets/images/commercial-painting/commercial-stair-handrail.jpeg"
-              alt="Finished commercial stairwell with painted walls and handrail"
-              loading="lazy"
-            />
-            <div>
-              <p class="showcase-label">Commercial</p>
-              <h3>Commercial Painting</h3>
-              <p>Professional painting and finish work for offices, retail spaces, rental properties, and business facilities.</p>
-              <a class="tile-link" href="#contact">View Projects</a>
+            <div class="category-panel-copy">
+              <p class="showcase-label" data-category-label>Flagship Category</p>
+              <h3 data-category-title>Premium Exterior Coating & Protection</h3>
+              <p data-category-description>Premium exterior coating, stucco preparation, and weather-aware finish systems designed for Florida homes.</p>
+              <a class="tile-link" href="#contact" data-category-link>View Gallery</a>
             </div>
           </article>
         </div>

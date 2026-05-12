@@ -2,6 +2,13 @@ const header = document.querySelector("[data-header]");
 const navToggle = document.querySelector(".nav-toggle");
 const siteNavLinks = document.querySelectorAll("[data-nav] a");
 const serviceCards = document.querySelectorAll(".service-card");
+const categoryTabs = document.querySelectorAll("[data-category-tab]");
+const categoryPanel = document.querySelector(".category-panel");
+const categoryImage = document.querySelector("[data-category-image]");
+const categoryLabel = document.querySelector("[data-category-label]");
+const categoryTitle = document.querySelector("[data-category-title]");
+const categoryDescription = document.querySelector("[data-category-description]");
+const categoryLink = document.querySelector("[data-category-link]");
 const estimateIntentLinks = document.querySelectorAll("[data-estimate-intent]");
 const estimateForm = document.querySelector('form[name="rds-estimate"]');
 const projectTypeField = estimateForm?.querySelector('[name="project-type"]');
@@ -32,6 +39,43 @@ serviceCards.forEach((card) => {
         otherCard.open = false;
       }
     });
+  });
+});
+
+const activateCategoryTab = (tab) => {
+  if (!tab || !categoryPanel || !categoryImage || !categoryLabel || !categoryTitle || !categoryDescription) return;
+
+  categoryTabs.forEach((otherTab) => {
+    const isActive = otherTab === tab;
+    otherTab.classList.toggle("is-active", isActive);
+    otherTab.setAttribute("aria-selected", String(isActive));
+  });
+
+  categoryPanel.setAttribute("aria-labelledby", tab.id);
+  categoryImage.src = tab.dataset.image;
+  categoryImage.alt = tab.dataset.alt;
+  categoryLabel.textContent = tab.dataset.label;
+  categoryTitle.textContent = tab.dataset.title;
+  categoryDescription.textContent = tab.dataset.description;
+
+  if (categoryLink) {
+    categoryLink.textContent = tab.dataset.linkLabel || "View Projects";
+  }
+};
+
+categoryTabs.forEach((tab) => {
+  tab.addEventListener("click", () => activateCategoryTab(tab));
+
+  tab.addEventListener("keydown", (event) => {
+    if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+
+    event.preventDefault();
+    const tabs = Array.from(categoryTabs);
+    const currentIndex = tabs.indexOf(tab);
+    const direction = event.key === "ArrowRight" ? 1 : -1;
+    const nextTab = tabs[(currentIndex + direction + tabs.length) % tabs.length];
+    nextTab.focus();
+    activateCategoryTab(nextTab);
   });
 });
 
