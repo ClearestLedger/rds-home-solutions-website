@@ -246,6 +246,13 @@ h3 {
   border-color: var(--navy);
 }
 
+.section-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.45rem;
+}
+
 .hero {
   position: relative;
   display: grid;
@@ -297,6 +304,26 @@ h3 {
   text-decoration: underline;
   text-decoration-color: rgba(217, 122, 43, 0.66);
   text-underline-offset: 5px;
+}
+
+.service-area-line {
+  margin: 1.2rem 0 0;
+  color: var(--navy);
+  font-size: 1rem;
+  font-weight: 850;
+  line-height: 1.55;
+}
+
+.hero-area {
+  max-width: 730px;
+  color: rgba(31, 43, 58, 0.82);
+  font-size: 0.95rem;
+}
+
+.hero-content .hero-area {
+  margin-top: 1.2rem;
+  color: rgba(31, 43, 58, 0.82);
+  font-size: 0.95rem;
 }
 
 .trust-row,
@@ -364,6 +391,7 @@ h3 {
 .feature > *,
 .about > *,
 .contact-panel > *,
+.offer-panel > *,
 .solution-card,
 .process-step,
 .showcase-card,
@@ -416,11 +444,13 @@ h3 {
   gap: 1.2rem;
   justify-items: start;
   padding: 1.8rem;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-left: 5px solid var(--orange);
-  border-radius: 8px;
-  box-shadow: var(--soft-shadow);
+  background:
+    linear-gradient(135deg, rgba(217, 122, 43, 0.08), transparent 42%),
+    rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(202, 191, 173, 0.74);
+  border-left: 4px solid var(--orange);
+  border-radius: 10px;
+  box-shadow: 0 16px 44px rgba(31, 43, 58, 0.08);
 }
 
 .financing-panel p {
@@ -443,6 +473,43 @@ h3 {
   border-radius: 6px;
   font-size: 0.82rem;
   font-weight: 850;
+}
+
+.offer {
+  background:
+    linear-gradient(135deg, rgba(181, 210, 232, 0.22), transparent 34%),
+    var(--paper);
+}
+
+.offer-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) auto;
+  gap: 2rem;
+  align-items: center;
+  padding: 2.1rem;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(202, 191, 173, 0.66);
+  border-radius: 10px;
+  box-shadow: 0 18px 50px rgba(31, 43, 58, 0.08);
+}
+
+.offer-panel h2 {
+  max-width: 790px;
+  margin-bottom: 0.75rem;
+  font-size: 2.45rem;
+}
+
+.offer-panel p:not(.eyebrow) {
+  max-width: 700px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.06rem;
+}
+
+.offer-actions {
+  display: grid;
+  gap: 0.75rem;
+  min-width: min(100%, 280px);
 }
 
 .protection-system {
@@ -494,17 +561,17 @@ h3 {
 .process-grid {
   margin-top: 2.2rem;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.56);
+  border: 1px solid rgba(202, 191, 173, 0.58);
   border-radius: 10px;
-  box-shadow: var(--soft-shadow);
+  box-shadow: 0 14px 38px rgba(31, 43, 58, 0.06);
 }
 
 .process-step {
   min-height: 188px;
   padding: 1.35rem;
   background: transparent;
-  border-left: 1px solid var(--line);
+  border-left: 1px solid rgba(202, 191, 173, 0.58);
 }
 
 .process-step:first-child {
@@ -536,9 +603,9 @@ h3 {
   margin: 1.7rem 0 0;
   padding: 1.1rem 1.2rem;
   color: var(--muted);
-  background: rgba(255, 255, 255, 0.74);
-  border: 1px solid var(--line);
-  border-left: 4px solid var(--orange);
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(202, 191, 173, 0.58);
+  border-left: 3px solid var(--orange);
   border-radius: 8px;
   font-size: 0.98rem;
 }
@@ -558,16 +625,16 @@ h3 {
   align-content: start;
   padding: 1.65rem;
   overflow: hidden;
-  background: var(--white);
-  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(202, 191, 173, 0.64);
   border-radius: 8px;
-  box-shadow: var(--soft-shadow);
+  box-shadow: 0 14px 38px rgba(31, 43, 58, 0.07);
 }
 
 .solution-card::before {
   position: absolute;
   inset: 0 auto 0 0;
-  width: 5px;
+  width: 3px;
   content: "";
   background: var(--orange);
 }
@@ -618,7 +685,7 @@ h3 {
 
 .secondary-card {
   min-height: 188px;
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.7);
   box-shadow: none;
 }
 
@@ -636,10 +703,10 @@ h3 {
   display: grid;
   grid-template-rows: auto 1fr;
   overflow: hidden;
-  background: var(--white);
-  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(202, 191, 173, 0.66);
   border-radius: 8px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 18px 50px rgba(31, 43, 58, 0.09);
 }
 
 .category-tile-featured {
@@ -647,8 +714,8 @@ h3 {
   grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.85fr);
   grid-template-rows: 1fr;
   background:
-    linear-gradient(135deg, rgba(217, 122, 43, 0.08), transparent 42%),
-    var(--white);
+    linear-gradient(135deg, rgba(217, 122, 43, 0.1), transparent 42%),
+    rgba(255, 255, 255, 0.92);
   border-color: var(--line-strong);
 }
 
@@ -907,9 +974,20 @@ h3 {
   grid-template-columns: minmax(0, 0.8fr) minmax(320px, 0.78fr);
   gap: 4.5rem;
   align-items: center;
-  background: var(--ivory);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 86% 16%, rgba(181, 210, 232, 0.24), transparent 28%),
+    var(--ivory);
+  border-top: 1px solid rgba(202, 191, 173, 0.62);
+  border-bottom: 1px solid rgba(202, 191, 173, 0.62);
+}
+
+.feature .service-area-line {
+  color: var(--navy);
+  font-size: 1.08rem;
+}
+
+.county-line {
+  margin-top: 0.7rem;
 }
 
 .area-list {
@@ -982,7 +1060,8 @@ h3 {
 }
 
 .contact {
-  background: var(--navy);
+  background:
+    linear-gradient(180deg, var(--paper), var(--ivory));
 }
 
 .contact-panel {
@@ -991,11 +1070,11 @@ h3 {
   gap: 3.75rem;
   padding: 2.6rem;
   color: var(--ink);
-  background: var(--white);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-top: 5px solid var(--orange);
-  border-radius: 8px;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.18);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(202, 191, 173, 0.66);
+  border-top: 4px solid var(--orange);
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(31, 43, 58, 0.1);
 }
 
 .contact-panel p {
@@ -1156,6 +1235,7 @@ form .button {
   .intro,
   .feature,
   .financing,
+  .offer-panel,
   .about,
   .contact-panel {
     grid-template-columns: 1fr;
@@ -1213,6 +1293,10 @@ form .button {
     scroll-padding-top: 84px;
   }
 
+  body * {
+    min-width: 0;
+  }
+
   .site-header {
     min-height: 84px;
     padding: 0.85rem 1rem;
@@ -1231,15 +1315,20 @@ form .button {
   }
 
   h1 {
-    font-size: 2.18rem;
+    font-size: 1.96rem;
     line-height: 1.04;
     overflow-wrap: break-word;
   }
 
   h2,
   .compact-heading h2,
-  .project-gallery-heading h2 {
-    font-size: 2rem;
+  .project-gallery-heading h2,
+  .offer-panel h2 {
+    font-size: 1.78rem;
+  }
+
+  h3 {
+    font-size: 1.15rem;
   }
 
   .hero-content p:not(.eyebrow),
@@ -1248,7 +1337,7 @@ form .button {
   .feature p,
   .about-copy p,
   .contact-panel p {
-    font-size: 1rem;
+    font-size: 0.96rem;
   }
 
   .eyebrow {
@@ -1277,6 +1366,24 @@ form .button {
     padding: 4.15rem 1rem;
   }
 
+  .hero-content,
+  .section-heading,
+  .intro-copy,
+  .financing-panel,
+  .offer-panel,
+  .process-grid,
+  .category-gallery,
+  .contact-panel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-content .hero-area,
+  .service-area-line {
+    font-size: 0.86rem;
+    line-height: 1.5;
+  }
+
   .problem-grid,
   .flagship-grid,
   .secondary-grid,
@@ -1296,6 +1403,15 @@ form .button {
   .secondary-card,
   .process-step {
     min-height: auto;
+  }
+
+  .process-step {
+    border-top: 1px solid rgba(202, 191, 173, 0.58);
+    border-left: 0;
+  }
+
+  .process-step:first-child {
+    border-top: 0;
   }
 
   .service-card summary {
@@ -1328,6 +1444,10 @@ form .button {
   }
 
   .contact-panel {
+    padding: 1.25rem;
+  }
+
+  .offer-panel {
     padding: 1.25rem;
   }
 
