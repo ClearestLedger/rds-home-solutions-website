@@ -282,9 +282,15 @@ h3 {
   margin-top: 1.75rem;
 }
 
+.hero-phone-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  margin-top: 1.05rem;
+}
+
 .hero-phone {
   display: inline-flex;
-  margin-top: 1.05rem;
   color: var(--navy);
   font-size: 1.08rem;
   font-weight: 900;
