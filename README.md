@@ -1,6 +1,6 @@
 # RDS Home Solutions Website
 
-Production-ready static website for RDS Home Solutions.
+Production-ready static website for RDS Home Solutions, positioned around premium exterior painting and stucco coating systems for Florida homes.
 
 ## Confirmed Business Details
 
@@ -8,7 +8,8 @@ Production-ready static website for RDS Home Solutions.
 - Business base: Sarasota area
 - Service area: Fort Myers to Tampa area
 - Status: Insured
-- Email: rdshomesulutions11@gmail.com
+- Primary positioning: premium exterior painting, stucco repair, and exterior coating systems
+- Email: rdshomesolutions11@gmail.com
 - Danielle Spagnol: 941-258-5639
 - Rafael Spagnol: 941-960-6598
 - Instagram: https://www.instagram.com/rds.home.solutions/
