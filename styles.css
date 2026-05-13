@@ -989,6 +989,17 @@ h3 {
   line-height: 1.55;
 }
 
+.reference-link {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 1rem;
+  color: var(--orange-dark);
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-color: rgba(217, 122, 43, 0.42);
+  text-underline-offset: 5px;
+}
+
 .article-aside {
   position: sticky;
   top: 112px;
