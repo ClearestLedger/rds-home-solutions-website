@@ -33,9 +33,8 @@ The site is connected to Netlify through GitHub. Changes pushed to `main` should
 - Service area: Sarasota and surrounding areas, from Fort Myers to Tampa
 - Contact:
   - Danielle: 941-258-5639
-  - Rafael: 941-960-6598
   - Email: rdshomesolutions11@gmail.com
-  - WhatsApp uses the same numbers
+  - WhatsApp uses the listed contact number
 
 ## Current Design Decisions
 
@@ -49,7 +48,7 @@ The site is connected to Netlify through GitHub. Changes pushed to `main` should
 - Eight service boxes open into galleries.
 - Service numbers are hidden from the boxes.
 - The old standalone Selected Work / Before & After Gallery section was removed.
-- Meet RDS is text-only with bios for Danielle and Rafael only. No team photos are currently displayed.
+- Meet RDS is text-only with Danielle's bio displayed. No team photos are currently displayed.
 - Eduardo was removed from the public team section.
 
 ## Current Services

@@ -1107,6 +1107,10 @@ h3 {
   gap: 1rem;
 }
 
+.bio-grid-single {
+  grid-template-columns: minmax(0, 0.74fr);
+}
+
 .bio-card {
   min-height: 100%;
   padding: 1.65rem;
