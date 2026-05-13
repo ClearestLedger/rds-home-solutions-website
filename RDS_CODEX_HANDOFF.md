@@ -32,7 +32,7 @@ The site is connected to Netlify through GitHub. Changes pushed to `main` should
 - No office/storefront location listed
 - Service area: Sarasota and surrounding areas, from Fort Myers to Tampa
 - Contact:
-  - Danielle: 941-258-5639
+  - Phone: +1 (941) 258-5639
   - Email: rdshomesolutions11@gmail.com
   - WhatsApp uses the listed contact number
 

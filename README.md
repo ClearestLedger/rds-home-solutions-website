@@ -10,7 +10,7 @@ Production-ready static website for RDS Home Solutions, positioned around premiu
 - Status: Insured
 - Primary positioning: premium exterior painting, stucco repair, and exterior coating systems
 - Email: rdshomesolutions11@gmail.com
-- Danielle Spagnol: 941-258-5639
+- Contact phone: +1 (941) 258-5639
 - Instagram: https://www.instagram.com/rds.home.solutions/
 - Facebook: https://www.facebook.com/RSDRomesolutions
 
