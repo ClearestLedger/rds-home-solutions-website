@@ -14,7 +14,6 @@ const estimateForm = document.querySelector('form[name="rds-estimate"]');
 const projectTypeField = estimateForm?.querySelector('[name="project-type"]');
 const messageField = estimateForm?.querySelector('[name="message"]');
 const nameField = estimateForm?.querySelector('[name="name"]');
-const benefitTrack = document.querySelector("[data-benefit-track]");
 const assistant = document.querySelector("[data-assistant]");
 const assistantToggle = document.querySelector("[data-assistant-toggle]");
 const assistantPanel = document.querySelector("[data-assistant-panel]");
@@ -23,8 +22,6 @@ const assistantThread = document.querySelector("[data-assistant-thread]");
 const assistantReplyButtons = document.querySelectorAll("[data-assistant-reply]");
 const assistantForm = document.querySelector("[data-assistant-form]");
 const assistantInput = document.querySelector("[data-assistant-input]");
-let benefitAnimationFrame = 0;
-let benefitPaused = false;
 
 if (header && navToggle) {
   navToggle.addEventListener("click", () => {
@@ -110,59 +107,6 @@ estimateIntentLinks.forEach((link) => {
     }, 450);
   });
 });
-
-if (benefitTrack && window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
-  const originalCards = Array.from(benefitTrack.children);
-
-  originalCards.forEach((card) => {
-    const clone = card.cloneNode(true);
-    clone.setAttribute("aria-hidden", "true");
-    clone.dataset.benefitClone = "true";
-    benefitTrack.append(clone);
-  });
-
-  const firstClone = benefitTrack.querySelector("[data-benefit-clone]");
-  let loopWidth = firstClone?.offsetLeft || benefitTrack.scrollWidth / 2;
-  let lastFrameTime = performance.now();
-
-  const measureLoop = () => {
-    loopWidth = firstClone?.offsetLeft || benefitTrack.scrollWidth / 2;
-  };
-
-  const rollBenefits = (time) => {
-    const elapsed = time - lastFrameTime;
-    lastFrameTime = time;
-
-    if (!benefitPaused && loopWidth > 0) {
-      benefitTrack.scrollLeft += elapsed * 0.036;
-
-      if (benefitTrack.scrollLeft >= loopWidth) {
-        benefitTrack.scrollLeft -= loopWidth;
-      }
-    }
-
-    benefitAnimationFrame = window.requestAnimationFrame(rollBenefits);
-  };
-
-  benefitTrack.addEventListener("pointerenter", () => {
-    benefitPaused = true;
-  });
-
-  benefitTrack.addEventListener("pointerleave", () => {
-    benefitPaused = false;
-  });
-
-  benefitTrack.addEventListener("focusin", () => {
-    benefitPaused = true;
-  });
-
-  benefitTrack.addEventListener("focusout", () => {
-    benefitPaused = false;
-  });
-
-  window.addEventListener("resize", measureLoop);
-  benefitAnimationFrame = window.requestAnimationFrame(rollBenefits);
-}
 
 const setAssistantOpen = (isOpen) => {
   if (!assistant || !assistantToggle || !assistantPanel) return;

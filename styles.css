@@ -462,20 +462,35 @@ h3 {
 .benefit-slider {
   position: relative;
   margin-top: 2rem;
+  overflow: hidden;
 }
 
 .benefit-track {
+  --benefit-gap: 1rem;
   display: flex;
-  gap: 1rem;
+  width: max-content;
+  gap: var(--benefit-gap);
   overflow: hidden;
   padding: 0.25rem 0 1rem;
+  animation: benefit-roll 34s linear infinite;
   scroll-behavior: auto;
   scroll-snap-type: none;
   scrollbar-width: none;
+  will-change: transform;
 }
 
 .benefit-track::-webkit-scrollbar {
   display: none;
+}
+
+@keyframes benefit-roll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(calc(-50% - (var(--benefit-gap) / 2)), 0, 0);
+  }
 }
 
 .benefit-card {
