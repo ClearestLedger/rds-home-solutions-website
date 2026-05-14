@@ -14,6 +14,13 @@ const estimateForm = document.querySelector('form[name="rds-estimate"]');
 const projectTypeField = estimateForm?.querySelector('[name="project-type"]');
 const messageField = estimateForm?.querySelector('[name="message"]');
 const nameField = estimateForm?.querySelector('[name="name"]');
+const benefitTrack = document.querySelector("[data-benefit-track]");
+const benefitPrev = document.querySelector("[data-benefit-prev]");
+const benefitNext = document.querySelector("[data-benefit-next]");
+const assistant = document.querySelector("[data-assistant]");
+const assistantToggle = document.querySelector("[data-assistant-toggle]");
+const assistantPanel = document.querySelector("[data-assistant-panel]");
+const assistantClose = document.querySelector("[data-assistant-close]");
 
 if (header && navToggle) {
   navToggle.addEventListener("click", () => {
@@ -98,4 +105,61 @@ estimateIntentLinks.forEach((link) => {
       nameField?.focus({ preventScroll: true });
     }, 450);
   });
+});
+
+const scrollBenefits = (direction = 1) => {
+  if (!benefitTrack) return;
+
+  const firstCard = benefitTrack.querySelector(".benefit-card");
+  if (!firstCard) return;
+
+  const gap = Number.parseFloat(getComputedStyle(benefitTrack).columnGap) || 16;
+  const distance = firstCard.getBoundingClientRect().width + gap;
+  const maxScroll = benefitTrack.scrollWidth - benefitTrack.clientWidth;
+  const nextLeft = benefitTrack.scrollLeft + distance * direction;
+
+  benefitTrack.scrollTo({
+    left: nextLeft > maxScroll - 8 ? 0 : Math.max(0, nextLeft),
+    behavior: "smooth",
+  });
+};
+
+benefitPrev?.addEventListener("click", () => scrollBenefits(-1));
+benefitNext?.addEventListener("click", () => scrollBenefits(1));
+
+if (benefitTrack && window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+  let benefitTimer = window.setInterval(() => scrollBenefits(1), 5200);
+
+  const pauseBenefits = () => {
+    window.clearInterval(benefitTimer);
+  };
+
+  const resumeBenefits = () => {
+    window.clearInterval(benefitTimer);
+    benefitTimer = window.setInterval(() => scrollBenefits(1), 5200);
+  };
+
+  benefitTrack.addEventListener("pointerenter", pauseBenefits);
+  benefitTrack.addEventListener("pointerleave", resumeBenefits);
+  benefitTrack.addEventListener("focusin", pauseBenefits);
+  benefitTrack.addEventListener("focusout", resumeBenefits);
+}
+
+const setAssistantOpen = (isOpen) => {
+  if (!assistant || !assistantToggle || !assistantPanel) return;
+
+  assistant.classList.toggle("is-open", isOpen);
+  assistantToggle.setAttribute("aria-expanded", String(isOpen));
+  assistantPanel.hidden = !isOpen;
+};
+
+assistantToggle?.addEventListener("click", () => {
+  const isOpen = assistantToggle.getAttribute("aria-expanded") === "true";
+  setAssistantOpen(!isOpen);
+});
+
+assistantClose?.addEventListener("click", () => setAssistantOpen(false));
+
+assistantPanel?.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => setAssistantOpen(false));
 });

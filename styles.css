@@ -28,7 +28,8 @@ body {
   margin: 0;
   overflow-x: hidden;
   color: var(--ink);
-  background: var(--paper);
+  background:
+    linear-gradient(180deg, #ffffff 0%, var(--paper) 18%, var(--ivory) 58%, var(--paper) 100%);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.5;
@@ -129,9 +130,9 @@ h3 {
   min-height: 96px;
   padding: 1.1rem 1.25rem;
   color: var(--navy);
-  background: rgba(250, 249, 245, 0.9);
+  background: rgba(250, 249, 245, 0.92);
   border-bottom: 1px solid rgba(31, 43, 58, 0.1);
-  box-shadow: 0 10px 34px rgba(31, 43, 58, 0.08);
+  box-shadow: 0 10px 30px rgba(31, 43, 58, 0.06);
   backdrop-filter: blur(14px);
 }
 
@@ -376,7 +377,8 @@ h3 {
   grid-template-columns: minmax(0, 0.88fr) minmax(320px, 0.9fr);
   gap: 4.5rem;
   align-items: start;
-  background: var(--paper);
+  background:
+    linear-gradient(180deg, var(--paper), rgba(242, 238, 230, 0.72));
 }
 
 .intro-copy > p,
@@ -410,10 +412,10 @@ h3 {
 .problem-grid article {
   min-height: 124px;
   padding: 1rem;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  box-shadow: var(--soft-shadow);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(202, 191, 173, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(31, 43, 58, 0.05);
 }
 
 .problem-grid span {
@@ -431,12 +433,89 @@ h3 {
   font-size: 0.96rem;
 }
 
+.benefits {
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(242, 238, 230, 0.72), rgba(250, 249, 245, 0.96) 44%, rgba(255, 255, 255, 0.86));
+}
+
+.benefit-slider {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.benefit-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0.25rem 0 1rem;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+
+.benefit-card {
+  flex: 0 0 min(360px, 82vw);
+  min-height: 245px;
+  padding: 1.55rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(250, 249, 245, 0.82)),
+    var(--white);
+  border: 1px solid rgba(202, 191, 173, 0.54);
+  border-radius: 12px;
+  box-shadow: 0 18px 46px rgba(31, 43, 58, 0.07);
+  scroll-snap-align: start;
+}
+
+.benefit-card span {
+  display: inline-flex;
+  margin-bottom: 1.25rem;
+  color: var(--orange-dark);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.benefit-card h3 {
+  font-size: 1.5rem;
+}
+
+.benefit-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.benefit-controls {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.65rem;
+}
+
+.benefit-controls button {
+  width: 44px;
+  height: 44px;
+  color: var(--navy);
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(202, 191, 173, 0.66);
+  border-radius: 999px;
+  box-shadow: 0 10px 26px rgba(31, 43, 58, 0.06);
+  cursor: pointer;
+}
+
+.benefit-controls button:hover,
+.benefit-controls button:focus-visible {
+  color: var(--white);
+  background: var(--navy);
+}
+
 .financing {
   display: grid;
   grid-template-columns: minmax(0, 0.82fr) minmax(320px, 0.72fr);
   gap: 4.5rem;
   align-items: center;
-  background: var(--ivory);
+  background:
+    linear-gradient(135deg, rgba(181, 210, 232, 0.14), transparent 36%),
+    var(--ivory);
 }
 
 .financing-panel {
@@ -447,10 +526,10 @@ h3 {
   background:
     linear-gradient(135deg, rgba(217, 122, 43, 0.08), transparent 42%),
     rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(202, 191, 173, 0.74);
-  border-left: 4px solid var(--orange);
-  border-radius: 10px;
-  box-shadow: 0 16px 44px rgba(31, 43, 58, 0.08);
+  border: 1px solid rgba(202, 191, 173, 0.62);
+  border-left: 3px solid var(--orange);
+  border-radius: 12px;
+  box-shadow: 0 18px 46px rgba(31, 43, 58, 0.07);
 }
 
 .financing-panel p {
@@ -591,7 +670,8 @@ h3 {
 }
 
 .services {
-  background: var(--paper);
+  background:
+    linear-gradient(180deg, var(--paper) 0%, rgba(255, 255, 255, 0.82) 42%, var(--ivory) 100%);
 }
 
 .flagship-grid {
@@ -605,10 +685,10 @@ h3 {
   align-content: start;
   padding: 1.65rem;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(202, 191, 173, 0.64);
-  border-radius: 8px;
-  box-shadow: 0 14px 38px rgba(31, 43, 58, 0.07);
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(202, 191, 173, 0.52);
+  border-radius: 12px;
+  box-shadow: 0 15px 36px rgba(31, 43, 58, 0.055);
 }
 
 .solution-card::before {
@@ -805,10 +885,10 @@ h3 {
   overflow: hidden;
   background:
     linear-gradient(135deg, rgba(217, 122, 43, 0.08), transparent 42%),
-    rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(202, 191, 173, 0.68);
-  border-radius: 10px;
-  box-shadow: 0 20px 54px rgba(31, 43, 58, 0.1);
+    rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(202, 191, 173, 0.58);
+  border-radius: 14px;
+  box-shadow: 0 20px 52px rgba(31, 43, 58, 0.08);
 }
 
 .category-panel img {
@@ -1246,6 +1326,103 @@ form .button {
   border-color: rgba(217, 122, 43, 0.72);
 }
 
+.ask-rds {
+  position: fixed;
+  right: 1.15rem;
+  bottom: 1.15rem;
+  z-index: 80;
+  display: grid;
+  justify-items: end;
+  gap: 0.7rem;
+  pointer-events: none;
+}
+
+.ask-rds-toggle,
+.ask-rds-panel,
+.ask-rds a,
+.ask-rds button {
+  pointer-events: auto;
+}
+
+.ask-rds-toggle {
+  min-height: 48px;
+  padding: 0 1rem;
+  color: var(--white);
+  background: var(--navy);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  box-shadow: 0 18px 44px rgba(31, 43, 58, 0.2);
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.ask-rds-panel {
+  width: min(340px, calc(100vw - 2rem));
+  padding: 1rem;
+  color: var(--ink);
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.96), rgba(250, 249, 245, 0.9));
+  border: 1px solid rgba(202, 191, 173, 0.72);
+  border-radius: 14px;
+  box-shadow: 0 24px 70px rgba(31, 43, 58, 0.18);
+}
+
+.ask-rds-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.7rem;
+}
+
+.ask-rds-header strong {
+  color: var(--navy);
+  font-size: 1rem;
+}
+
+.ask-rds-header button {
+  padding: 0;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.ask-rds-panel p {
+  margin: 0 0 0.85rem;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.ask-rds-actions {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.ask-rds-actions a {
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.75rem;
+  color: var(--navy);
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(202, 191, 173, 0.68);
+  border-radius: 8px;
+  font-weight: 850;
+}
+
+.ask-rds-actions a:hover,
+.ask-rds-actions a:focus-visible {
+  color: var(--white);
+  background: var(--orange);
+  border-color: var(--orange);
+}
+
 @media (min-width: 900px) {
   .site-header {
     padding-right: 4.25rem;
@@ -1428,6 +1605,7 @@ form .button {
   .hero-content,
   .section-heading,
   .intro-copy,
+  .benefit-slider,
   .financing-panel,
   .offer-panel,
   .process-grid,
@@ -1537,5 +1715,14 @@ form .button {
   .site-footer {
     display: grid;
     padding: 2rem 1rem;
+  }
+
+  .ask-rds {
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
+
+  .ask-rds-panel {
+    width: calc(100vw - 1.5rem);
   }
 }

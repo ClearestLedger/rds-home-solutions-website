@@ -6,11 +6,11 @@ Production-ready static website for RDS Home Solutions, focused on premium paint
 
 - Business: RDS Home Solutions
 - Business base: Sarasota area
-- Service area: Sarasota and surrounding areas, from Fort Myers to Tampa
+- Service area: Sarasota, Bradenton, Lakewood Ranch, Venice, North Port, Port Charlotte, Englewood, Cape Coral, Fort Myers, St. Petersburg, Tampa, and nearby Florida communities
 - Status: Insured
 - Primary services: exterior painting, interior painting, outdoor wood stain and exterior finishes, remodeling and home improvement, commercial painting
 - Email: rdshomesolutions11@gmail.com
-- Contact phone: +1 (941) 258-5639
+- Contact phone: 941-258-5639
 - Instagram: https://www.instagram.com/rds.home.solutions/
 - Facebook: https://www.facebook.com/RSDRomesolutions
 
@@ -28,6 +28,8 @@ The site is a static HTML/CSS/JavaScript project connected to Netlify through Gi
 ## Asset Notes
 
 Project images live under `assets/images/`. The homepage uses controlled category previews instead of a long exposed gallery.
+
+The homepage also includes a benefit slider and a bottom-right Ask RDS quick-action widget for estimates, financing, service review, and calling Danielle.
 
 Recommended folders for future images:
 

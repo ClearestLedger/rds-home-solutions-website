@@ -28,10 +28,9 @@ The site is connected to Netlify through GitHub. Changes pushed to `main` should
 - Licensed wording was removed; keep only insured unless the owner asks otherwise
 - No testimonials yet
 - No office/storefront location listed
-- Service area: Sarasota and surrounding areas, from Fort Myers to Tampa
-- Contact phone: +1 (941) 258-5639
+- Service area: Sarasota, Bradenton, Lakewood Ranch, Venice, North Port, Port Charlotte, Englewood, Cape Coral, Fort Myers, St. Petersburg, Tampa, and nearby Florida communities
+- Contact phone: 941-258-5639
 - Email: rdshomesolutions11@gmail.com
-- WhatsApp uses the listed contact number
 
 ## Current Design Decisions
 
@@ -39,6 +38,8 @@ The site is connected to Netlify through GitHub. Changes pushed to `main` should
 - Homepage headline: "Premium Painting, Wood Finishing & Home Improvements for Florida Homes"
 - Financing remains visible near the top of the homepage.
 - Services are organized around painting, wood finishing, remodeling, and commercial work.
+- The homepage includes a motion benefit slider titled "Why Florida Homeowners Choose RDS."
+- The bottom-right Ask RDS widget offers quick actions for estimates, financing, calling Danielle, and viewing services.
 - The project gallery uses layered category tabs so only one polished category image is active at a time.
 - No large exposed gallery dump appears on the homepage.
 - Meet RDS is text-only with Danielle's bio displayed. No team photos are currently displayed.
