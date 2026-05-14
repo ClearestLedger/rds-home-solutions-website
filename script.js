@@ -25,6 +25,7 @@ const assistantThread = document.querySelector("[data-assistant-thread]");
 const assistantReplyButtons = document.querySelectorAll("[data-assistant-reply]");
 const assistantForm = document.querySelector("[data-assistant-form]");
 const assistantInput = document.querySelector("[data-assistant-input]");
+let benefitAnimationFrame = 0;
 
 if (header && navToggle) {
   navToggle.addEventListener("click", () => {
@@ -121,11 +122,25 @@ const scrollBenefits = (direction = 1) => {
   const distance = firstCard.getBoundingClientRect().width + gap;
   const maxScroll = benefitTrack.scrollWidth - benefitTrack.clientWidth;
   const nextLeft = benefitTrack.scrollLeft + distance * direction;
+  const startLeft = benefitTrack.scrollLeft;
+  const targetLeft = nextLeft > maxScroll - 8 ? 0 : Math.max(0, nextLeft);
+  const duration = targetLeft === 0 && startLeft > distance ? 1650 : 1250;
+  const startTime = performance.now();
 
-  benefitTrack.scrollTo({
-    left: nextLeft > maxScroll - 8 ? 0 : Math.max(0, nextLeft),
-    behavior: "smooth",
-  });
+  window.cancelAnimationFrame(benefitAnimationFrame);
+
+  const animate = (time) => {
+    const progress = Math.min((time - startTime) / duration, 1);
+    const eased = progress < 0.5 ? 4 * progress * progress * progress : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+    benefitTrack.scrollLeft = startLeft + (targetLeft - startLeft) * eased;
+
+    if (progress < 1) {
+      benefitAnimationFrame = window.requestAnimationFrame(animate);
+    }
+  };
+
+  benefitAnimationFrame = window.requestAnimationFrame(animate);
 };
 
 benefitPrev?.addEventListener("click", () => scrollBenefits(-1));
@@ -172,11 +187,11 @@ const assistantResponses = {
   wood:
     "Yes. RDS handles outdoor wood stain and exterior finish work for details such as doors, gates, fences, panels, stairs, and outdoor living features. Recommendations depend on the wood condition, finish goals, prep needs, and exposure.",
   estimate:
-    "To request an estimate, share the property location, the service you need, and a few details about the project. You can use the estimate form below or call Danielle at 941-258-5639 or Rafael at 941-960-6598.",
+    "To request an estimate, share the property location, the service you need, and a few details about the project. You can use the estimate form below or call Danielle or Rafael from the contact buttons.",
   call:
-    "You can call Danielle at 941-258-5639 for scheduling and estimate coordination, or Rafael at 941-960-6598 for project questions and oversight.",
+    "You can call Danielle for scheduling and estimate coordination, or Rafael for project questions and oversight. Use the call buttons below or the phone links near the top of the page.",
   general:
-    "Thanks for the question. RDS can give the most helpful recommendation after reviewing the service type, surface condition, prep needs, project scope, timing, and finish goals. For a clear next step, request a free estimate or call the team directly.",
+    "Ask whatever you need. RDS can give the most helpful recommendation after reviewing the service type, surface condition, prep needs, project scope, timing, and finish goals. For a clear next step, request a free estimate or call the team directly.",
 };
 
 const addAssistantMessage = (message) => {
