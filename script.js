@@ -21,6 +21,10 @@ const assistant = document.querySelector("[data-assistant]");
 const assistantToggle = document.querySelector("[data-assistant-toggle]");
 const assistantPanel = document.querySelector("[data-assistant-panel]");
 const assistantClose = document.querySelector("[data-assistant-close]");
+const assistantThread = document.querySelector("[data-assistant-thread]");
+const assistantReplyButtons = document.querySelectorAll("[data-assistant-reply]");
+const assistantForm = document.querySelector("[data-assistant-form]");
+const assistantInput = document.querySelector("[data-assistant-input]");
 
 if (header && navToggle) {
   navToggle.addEventListener("click", () => {
@@ -159,6 +163,67 @@ assistantToggle?.addEventListener("click", () => {
 });
 
 assistantClose?.addEventListener("click", () => setAssistantOpen(false));
+
+const assistantResponses = {
+  services:
+    "RDS provides exterior painting, interior painting, outdoor wood staining and exterior finishes, remodeling support, commercial painting, and general home improvement finish work. The best next step is a free estimate so the team can review the project scope and surfaces.",
+  financing:
+    "Flexible financing options may be available for qualified homeowners. Approval, terms, and available options depend on the financing provider and project details, so RDS can discuss the next step during your estimate.",
+  wood:
+    "Yes. RDS handles outdoor wood stain and exterior finish work for details such as doors, gates, fences, panels, stairs, and outdoor living features. Recommendations depend on the wood condition, finish goals, prep needs, and exposure.",
+  estimate:
+    "To request an estimate, share the property location, the service you need, and a few details about the project. You can use the estimate form below or call Danielle at 941-258-5639 or Rafael at 941-960-6598.",
+  call:
+    "You can call Danielle at 941-258-5639 for scheduling and estimate coordination, or Rafael at 941-960-6598 for project questions and oversight.",
+  general:
+    "Thanks for the question. RDS can give the most helpful recommendation after reviewing the service type, surface condition, prep needs, project scope, timing, and finish goals. For a clear next step, request a free estimate or call the team directly.",
+};
+
+const addAssistantMessage = (message) => {
+  if (!assistantThread) return;
+
+  const response = document.createElement("p");
+  response.className = "ask-rds-message ask-rds-response";
+  response.textContent = message;
+  assistantThread.append(response);
+  assistantThread.scrollTop = assistantThread.scrollHeight;
+};
+
+assistantReplyButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const responseKey = button.dataset.assistantReply || "general";
+    addAssistantMessage(assistantResponses[responseKey] || assistantResponses.general);
+  });
+});
+
+assistantForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const question = assistantInput?.value.trim().toLowerCase() || "";
+  const responseKey = question.includes("financ")
+    ? "financing"
+    : question.includes("wood") || question.includes("stain")
+      ? "wood"
+      : question.includes("call") || question.includes("phone")
+        ? "call"
+        : question.includes("estimate") || question.includes("quote")
+          ? "estimate"
+          : question.includes("paint") || question.includes("remodel") || question.includes("commercial")
+            ? "services"
+            : "general";
+
+  addAssistantMessage(assistantResponses[responseKey]);
+
+  if (assistantInput) {
+    assistantInput.value = "";
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    setAssistantOpen(false);
+  }
+});
 
 assistantPanel?.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => setAssistantOpen(false));

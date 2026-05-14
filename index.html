@@ -521,21 +521,40 @@
     </footer>
     <aside class="ask-rds" data-assistant aria-label="Ask RDS quick help">
       <button class="ask-rds-toggle" type="button" data-assistant-toggle aria-expanded="false" aria-controls="ask-rds-panel">
-        Ask RDS
+        ASK RDS
       </button>
       <div class="ask-rds-panel" id="ask-rds-panel" data-assistant-panel hidden>
         <div class="ask-rds-header">
-          <strong>Ask RDS</strong>
+          <div>
+            <strong>ASK RDS</strong>
+            <span>Questions about painting, wood stain, remodeling, financing, or scheduling?</span>
+          </div>
           <button type="button" data-assistant-close aria-label="Close Ask RDS">Close</button>
         </div>
-        <p>Questions about painting, wood stain, remodeling, financing, or scheduling? Start here.</p>
-        <div class="ask-rds-actions">
-          <a href="#contact" data-estimate-intent data-project-type="Exterior Painting" data-message="I would like to request an estimate for my project.">Request an estimate</a>
-          <a href="#financing" data-estimate-intent data-project-type="Remodeling & Home Improvement" data-message="I would like to ask about financing options.">Ask about financing</a>
+        <div class="ask-rds-thread" data-assistant-thread aria-live="polite">
+          <p class="ask-rds-message">
+            Hi, I can help with exterior painting, interior painting, wood staining, remodeling, commercial painting,
+            financing, and the next step for a free estimate.
+          </p>
+        </div>
+        <div class="ask-rds-actions" aria-label="Ask RDS quick actions">
+          <button type="button" data-assistant-reply="services">What services does RDS provide?</button>
+          <button type="button" data-assistant-reply="financing">Can I ask about financing?</button>
+          <button type="button" data-assistant-reply="wood">Do you handle wood stain?</button>
+          <button type="button" data-assistant-reply="estimate">Request an estimate</button>
+          <button type="button" data-assistant-reply="call">Call now</button>
+        </div>
+        <form class="ask-rds-form" data-assistant-form>
+          <label for="ask-rds-question">Type a question</label>
+          <textarea id="ask-rds-question" data-assistant-input rows="3" placeholder="Tell us what you are planning..."></textarea>
+          <button type="submit">Send</button>
+        </form>
+        <div class="ask-rds-links" aria-label="Ask RDS contact links">
+          <a href="#contact" data-estimate-intent data-project-type="Exterior Painting" data-message="I would like to request an estimate for my project.">Estimate form</a>
+          <a href="#financing" data-estimate-intent data-project-type="Remodeling & Home Improvement" data-message="I would like to ask about financing options.">Financing</a>
           <a href="tel:9412585639">Call Danielle</a>
           <a href="tel:9419606598">Call Rafael</a>
           <a href="https://wa.me/19419606598">WhatsApp Rafael</a>
-          <a href="#painting-services">View services</a>
         </div>
       </div>
     </aside>

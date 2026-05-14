@@ -1345,20 +1345,37 @@ form .button {
 }
 
 .ask-rds-toggle {
-  min-height: 48px;
-  padding: 0 1rem;
+  order: 2;
+  min-height: 50px;
+  padding: 0 1.05rem;
   color: var(--white);
-  background: var(--navy);
+  background: var(--orange);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 999px;
-  box-shadow: 0 18px 44px rgba(31, 43, 58, 0.2);
+  box-shadow: 0 18px 44px rgba(31, 43, 58, 0.22);
   font: inherit;
+  font-size: 0.92rem;
   font-weight: 900;
+  letter-spacing: 0.02em;
   cursor: pointer;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.ask-rds-toggle:hover,
+.ask-rds-toggle:focus-visible {
+  background: #bf651d;
+  box-shadow: 0 22px 54px rgba(31, 43, 58, 0.27);
+  transform: translateY(-1px);
 }
 
 .ask-rds-panel {
-  width: min(340px, calc(100vw - 2rem));
+  order: 1;
+  width: min(390px, calc(100vw - 2rem));
+  max-height: min(680px, calc(100vh - 6rem));
+  overflow: auto;
   padding: 1rem;
   color: var(--ink);
   background:
@@ -1370,15 +1387,24 @@ form .button {
 
 .ask-rds-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.85rem;
 }
 
 .ask-rds-header strong {
   color: var(--navy);
   font-size: 1rem;
+}
+
+.ask-rds-header span {
+  display: block;
+  margin-top: 0.18rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 750;
+  line-height: 1.35;
 }
 
 .ask-rds-header button {
@@ -1392,18 +1418,43 @@ form .button {
   cursor: pointer;
 }
 
-.ask-rds-panel p {
+.ask-rds-thread {
+  display: grid;
+  max-height: 180px;
+  overflow: auto;
+  gap: 0.6rem;
   margin: 0 0 0.85rem;
+  padding-right: 0.15rem;
+}
+
+.ask-rds-panel p {
+  margin: 0;
   color: var(--muted);
   font-size: 0.94rem;
 }
 
-.ask-rds-actions {
-  display: grid;
-  gap: 0.55rem;
+.ask-rds-message {
+  padding: 0.72rem 0.78rem;
+  color: var(--ink);
+  background: rgba(242, 238, 230, 0.72);
+  border: 1px solid rgba(202, 191, 173, 0.55);
+  border-radius: 10px;
+  line-height: 1.45;
 }
 
-.ask-rds-actions a {
+.ask-rds-response {
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(217, 122, 43, 0.24);
+}
+
+.ask-rds-actions {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.ask-rds-actions button,
+.ask-rds-links a {
   display: flex;
   min-height: 40px;
   align-items: center;
@@ -1413,14 +1464,73 @@ form .button {
   background: rgba(255, 255, 255, 0.78);
   border: 1px solid rgba(202, 191, 173, 0.68);
   border-radius: 8px;
+  font: inherit;
+  font-size: 0.88rem;
   font-weight: 850;
+  line-height: 1.2;
+  text-align: left;
+  cursor: pointer;
 }
 
-.ask-rds-actions a:hover,
-.ask-rds-actions a:focus-visible {
+.ask-rds-actions button:hover,
+.ask-rds-actions button:focus-visible,
+.ask-rds-links a:hover,
+.ask-rds-links a:focus-visible {
   color: var(--white);
   background: var(--orange);
   border-color: var(--orange);
+}
+
+.ask-rds-form {
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.ask-rds-form label {
+  color: var(--navy);
+  font-size: 0.78rem;
+}
+
+.ask-rds-form textarea {
+  min-height: 82px;
+  padding: 0.7rem;
+  background: rgba(255, 255, 255, 0.82);
+  border-radius: 8px;
+  font-size: 0.88rem;
+}
+
+.ask-rds-form button {
+  min-height: 42px;
+  padding: 0.65rem 0.85rem;
+  color: var(--white);
+  background: var(--navy);
+  border: 1px solid var(--navy);
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.ask-rds-form button:hover,
+.ask-rds-form button:focus-visible {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+
+.ask-rds-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.ask-rds-links a {
+  flex: 1 1 calc(50% - 0.45rem);
+  justify-content: center;
+  min-height: 36px;
+  padding: 0.55rem 0.65rem;
+  font-size: 0.8rem;
+  text-align: center;
 }
 
 @media (min-width: 900px) {
