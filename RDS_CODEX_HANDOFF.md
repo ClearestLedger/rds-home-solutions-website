@@ -29,7 +29,9 @@ The site is connected to Netlify through GitHub. Changes pushed to `main` should
 - No testimonials yet
 - No office/storefront location listed
 - Service area: Sarasota, Bradenton, Lakewood Ranch, Venice, North Port, Port Charlotte, Englewood, Cape Coral, Fort Myers, St. Petersburg, Tampa, and nearby Florida communities
-- Contact phone: 941-258-5639
+- Danielle phone: 941-258-5639
+- Rafael phone: 941-960-6598
+- Rafael WhatsApp: https://wa.me/19419606598
 - Email: rdshomesolutions11@gmail.com
 
 ## Current Design Decisions
@@ -39,10 +41,10 @@ The site is connected to Netlify through GitHub. Changes pushed to `main` should
 - Financing remains visible near the top of the homepage.
 - Services are organized around painting, wood finishing, remodeling, and commercial work.
 - The homepage includes a motion benefit slider titled "Why Florida Homeowners Choose RDS."
-- The bottom-right Ask RDS widget offers quick actions for estimates, financing, calling Danielle, and viewing services.
+- The bottom-right Ask RDS widget offers quick actions for estimates, financing, calling Danielle, contacting Rafael, and viewing services.
 - The project gallery uses layered category tabs so only one polished category image is active at a time.
 - No large exposed gallery dump appears on the homepage.
-- Meet RDS is text-only with Danielle's bio displayed. No team photos are currently displayed.
+- Meet RDS is text-only with Danielle and Rafael bios displayed. No team photos are currently displayed.
 - Eduardo was removed from the public team section.
 
 ## Current Service Categories
