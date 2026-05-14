@@ -127,7 +127,7 @@ const assistantResponses = {
   services:
     "RDS provides exterior painting, interior painting, outdoor wood staining and exterior finishes, remodeling support, commercial painting, and general home improvement finish work. The best next step is a free estimate so the team can review the project scope and surfaces.",
   financing:
-    "Flexible financing options may be available for qualified homeowners. Approval, terms, and available options depend on the financing provider and project details, so RDS can discuss the next step during your estimate.",
+    "Financing options may help qualified homeowners plan painting, wood finishing, remodeling, or home improvement work without waiting years to do everything in pieces. Approval, terms, costs, and available options depend on the financing provider, project details, and homeowner qualifications. If you are considering home equity, speak with your lender about repayment terms and whether it fits your budget.",
   wood:
     "Yes. RDS handles outdoor wood stain and exterior finish work for details such as doors, gates, fences, panels, stairs, and outdoor living features. Recommendations depend on the wood condition, finish goals, prep needs, and exposure.",
   estimate:

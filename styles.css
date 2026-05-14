@@ -573,33 +573,62 @@ h3 {
 }
 
 .financing {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 0.82fr) minmax(320px, 0.72fr);
   gap: 4.5rem;
   align-items: center;
   background:
-    linear-gradient(135deg, rgba(181, 210, 232, 0.14), transparent 36%),
+    radial-gradient(circle at 84% 18%, rgba(217, 122, 43, 0.16), transparent 28%),
+    linear-gradient(135deg, rgba(181, 210, 232, 0.22), transparent 36%),
     var(--ivory);
 }
 
 .financing-panel {
   display: grid;
-  gap: 1.2rem;
+  gap: 1.25rem;
   justify-items: start;
-  padding: 1.8rem;
+  padding: clamp(1.45rem, 3vw, 2.35rem);
   background:
-    linear-gradient(135deg, rgba(217, 122, 43, 0.08), transparent 42%),
+    linear-gradient(135deg, rgba(217, 122, 43, 0.12), transparent 42%),
     rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(202, 191, 173, 0.62);
-  border-left: 3px solid var(--orange);
+  border-left: 6px solid var(--orange);
   border-radius: 12px;
-  box-shadow: 0 18px 46px rgba(31, 43, 58, 0.07);
+  box-shadow: 0 22px 60px rgba(31, 43, 58, 0.1);
 }
 
 .financing-panel p {
   margin: 0;
   color: var(--muted);
   font-size: 1.04rem;
+}
+
+.financing-lead {
+  max-width: 660px;
+}
+
+.financing-callout {
+  display: grid;
+  gap: 0.45rem;
+  padding: 1rem 1.1rem;
+  color: var(--navy);
+  background:
+    linear-gradient(135deg, rgba(250, 249, 245, 0.92), rgba(255, 255, 255, 0.82)),
+    var(--paper);
+  border: 1px solid rgba(217, 122, 43, 0.28);
+  border-radius: 10px;
+}
+
+.financing-callout strong {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.4rem, 2.6vw, 2.1rem);
+  line-height: 1.08;
+}
+
+.financing-callout span {
+  color: var(--muted);
+  font-size: 0.98rem;
 }
 
 .financing-points {
