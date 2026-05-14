@@ -15,8 +15,6 @@ const projectTypeField = estimateForm?.querySelector('[name="project-type"]');
 const messageField = estimateForm?.querySelector('[name="message"]');
 const nameField = estimateForm?.querySelector('[name="name"]');
 const benefitTrack = document.querySelector("[data-benefit-track]");
-const benefitPrev = document.querySelector("[data-benefit-prev]");
-const benefitNext = document.querySelector("[data-benefit-next]");
 const assistant = document.querySelector("[data-assistant]");
 const assistantToggle = document.querySelector("[data-assistant-toggle]");
 const assistantPanel = document.querySelector("[data-assistant-panel]");
@@ -26,6 +24,7 @@ const assistantReplyButtons = document.querySelectorAll("[data-assistant-reply]"
 const assistantForm = document.querySelector("[data-assistant-form]");
 const assistantInput = document.querySelector("[data-assistant-input]");
 let benefitAnimationFrame = 0;
+let benefitPaused = false;
 
 if (header && navToggle) {
   navToggle.addEventListener("click", () => {
@@ -112,56 +111,57 @@ estimateIntentLinks.forEach((link) => {
   });
 });
 
-const scrollBenefits = (direction = 1) => {
-  if (!benefitTrack) return;
-
-  const firstCard = benefitTrack.querySelector(".benefit-card");
-  if (!firstCard) return;
-
-  const gap = Number.parseFloat(getComputedStyle(benefitTrack).columnGap) || 16;
-  const distance = firstCard.getBoundingClientRect().width + gap;
-  const maxScroll = benefitTrack.scrollWidth - benefitTrack.clientWidth;
-  const nextLeft = benefitTrack.scrollLeft + distance * direction;
-  const startLeft = benefitTrack.scrollLeft;
-  const targetLeft = nextLeft > maxScroll - 8 ? 0 : Math.max(0, nextLeft);
-  const duration = targetLeft === 0 && startLeft > distance ? 1650 : 1250;
-  const startTime = performance.now();
-
-  window.cancelAnimationFrame(benefitAnimationFrame);
-
-  const animate = (time) => {
-    const progress = Math.min((time - startTime) / duration, 1);
-    const eased = progress < 0.5 ? 4 * progress * progress * progress : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-
-    benefitTrack.scrollLeft = startLeft + (targetLeft - startLeft) * eased;
-
-    if (progress < 1) {
-      benefitAnimationFrame = window.requestAnimationFrame(animate);
-    }
-  };
-
-  benefitAnimationFrame = window.requestAnimationFrame(animate);
-};
-
-benefitPrev?.addEventListener("click", () => scrollBenefits(-1));
-benefitNext?.addEventListener("click", () => scrollBenefits(1));
-
 if (benefitTrack && window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
-  let benefitTimer = window.setInterval(() => scrollBenefits(1), 5200);
+  const originalCards = Array.from(benefitTrack.children);
 
-  const pauseBenefits = () => {
-    window.clearInterval(benefitTimer);
+  originalCards.forEach((card) => {
+    const clone = card.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    clone.dataset.benefitClone = "true";
+    benefitTrack.append(clone);
+  });
+
+  const firstClone = benefitTrack.querySelector("[data-benefit-clone]");
+  let loopWidth = firstClone?.offsetLeft || benefitTrack.scrollWidth / 2;
+  let lastFrameTime = performance.now();
+
+  const measureLoop = () => {
+    loopWidth = firstClone?.offsetLeft || benefitTrack.scrollWidth / 2;
   };
 
-  const resumeBenefits = () => {
-    window.clearInterval(benefitTimer);
-    benefitTimer = window.setInterval(() => scrollBenefits(1), 5200);
+  const rollBenefits = (time) => {
+    const elapsed = time - lastFrameTime;
+    lastFrameTime = time;
+
+    if (!benefitPaused && loopWidth > 0) {
+      benefitTrack.scrollLeft += elapsed * 0.036;
+
+      if (benefitTrack.scrollLeft >= loopWidth) {
+        benefitTrack.scrollLeft -= loopWidth;
+      }
+    }
+
+    benefitAnimationFrame = window.requestAnimationFrame(rollBenefits);
   };
 
-  benefitTrack.addEventListener("pointerenter", pauseBenefits);
-  benefitTrack.addEventListener("pointerleave", resumeBenefits);
-  benefitTrack.addEventListener("focusin", pauseBenefits);
-  benefitTrack.addEventListener("focusout", resumeBenefits);
+  benefitTrack.addEventListener("pointerenter", () => {
+    benefitPaused = true;
+  });
+
+  benefitTrack.addEventListener("pointerleave", () => {
+    benefitPaused = false;
+  });
+
+  benefitTrack.addEventListener("focusin", () => {
+    benefitPaused = true;
+  });
+
+  benefitTrack.addEventListener("focusout", () => {
+    benefitPaused = false;
+  });
+
+  window.addEventListener("resize", measureLoop);
+  benefitAnimationFrame = window.requestAnimationFrame(rollBenefits);
 }
 
 const setAssistantOpen = (isOpen) => {
